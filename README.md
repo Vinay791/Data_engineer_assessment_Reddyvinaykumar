@@ -84,10 +84,10 @@ For MySQL Docker image reference:
 **Document your solution here:**
 
 Project Documentation – Data Engineer Assessment
-# 1. Overview
+### 1. Overview
 
 This project processes property data from JSON, transforms it, and loads it into a MySQL database using an ETL Python script. The project demonstrates data cleaning, handling nested data, and database management.
-# 2. Repository Contents
+### 2. Repository Contents
 
 schema.sql – SQL schema to create required tables in MySQL.
 
@@ -97,13 +97,13 @@ data/fake_property_data_new.json – Sample property data in JSON format.
 
 Field Config.xlsx – Reference for field names and data types.
 
-# 3. Database Schema
+### 3. Database Schema
 
 Database: home_db 
 
 Tables:
 
-## property
+### property
 | Column              | Type    | Description             |
 | ------------------- | ------- | ----------------------- |
 | Property_Title      | VARCHAR | Full property title     |
@@ -205,7 +205,7 @@ Transform – Clean data, handle missing/null values, and flatten nested structu
 
 Load – Insert data into MySQL tables (property, valuation, hoa, rehab) with proper foreign key relationships.
 
-# 5. Running the Project
+### 5. Running the Project
    
    Start MySQL using Docker Compose
    Use the provided docker-compose.initial.yml file to build and run the MySQL container automatically:
@@ -262,11 +262,13 @@ SHOW tables;
 ```
 you can see four tables
 
-| -------------- | 
-|   property     | 
-|   valuation    | 
-|   rehab        | 
-|   hoa          | 
+| Tables in `home_db` |
+|----------------------|
+| property             |
+| valuation            |
+| rehab                |
+| hoa                  |
+
 
 To see the data in the tables run this query 
 ```
