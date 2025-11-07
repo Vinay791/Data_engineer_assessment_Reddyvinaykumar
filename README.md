@@ -104,73 +104,98 @@ Database: home_db
 Tables:
 
 ## property
-| Column              | Type      | Description                  |
-| -------------------- | ---------- | ------------------------------ |
-| Property_Title       | VARCHAR   | Full property title |
-| Address              | VARCHAR   | Full address |
-| Reviewed_Status      | VARCHAR   | Review status |
-| Most_Recent_Status   | VARCHAR   | Latest status |
-| Source               | VARCHAR   | Data source |
-| Market               | VARCHAR   | Market city/region |
-| Occupancy            | VARCHAR   | Occupancy info |
-| Flood                | VARCHAR   | Flood info |
-| Street_Address       | VARCHAR   | Street address |
-| City                 | VARCHAR   | City name |
-| State                | VARCHAR   | State code |
-| Zip                  | VARCHAR   | Zip code |
-| Property_Type        | VARCHAR   | Type of property |
-| Highway              | VARCHAR   | Highway proximity |
-| Train                | VARCHAR   | Train proximity |
-| Tax_Rate             | FLOAT     | Tax rate |
-| SQFT_Basement        | INT       | Basement area |
-| HTW                  | VARCHAR   | Heat/Water info |
-| Pool                 | VARCHAR   | Pool availability |
-| Commercial           | VARCHAR   | Commercial property |
-| Water                | VARCHAR   | Water source |
-| Sewage               | VARCHAR   | Sewage type |
-| Year_Built           | INT       | Year built |
-| SQFT_MU              | INT       | Main unit area |
-| SQFT_Total           | VARCHAR   | Total square feet |
-| Parking              | VARCHAR   | Parking type |
-| Bed                  | INT       | Number of bedrooms |
-| Bath                 | INT       | Number of bathrooms |
-| Layout               | VARCHAR   | Property layout |
-| Net_Yield            | FLOAT     | Net yield percentage |
-| IRR                  | FLOAT     | Internal Rate of Return |
-| Rent_Restricted      | VARCHAR   | Rent restriction info |
-| Neighborhood_Rating  | INT       | Neighborhood rating |
-| Latitude             | FLOAT     | Latitude coordinate |
-| Longitude            | FLOAT     | Longitude coordinate |
-| Subdivision          | VARCHAR   | Subdivision name |
-| Taxes                | FLOAT     | Property taxes |
-| Selling_Reason       | VARCHAR   | Reason for sale |
-| Final_Reviewer       | VARCHAR   | Reviewer name |
-| School_Average       | FLOAT     | School rating |
+| Column              | Type    | Description             |
+| ------------------- | ------- | ----------------------- |
+| Property_Title      | VARCHAR | Full property title     |
+| Address             | VARCHAR | Full address            |
+| Reviewed_Status     | VARCHAR | Review status           |
+| Most_Recent_Status  | VARCHAR | Latest status           |
+| Source              | VARCHAR | Data source             |
+| Market              | VARCHAR | Market city/region      |
+| Occupancy           | VARCHAR | Occupancy info          |
+| Flood               | VARCHAR | Flood info              |
+| Street_Address      | VARCHAR | Street address          |
+| City                | VARCHAR | City name               |
+| State               | VARCHAR | State code              |
+| Zip                 | VARCHAR | Zip code                |
+| Property_Type       | VARCHAR | Type of property        |
+| Highway             | VARCHAR | Highway proximity       |
+| Train               | VARCHAR | Train proximity         |
+| Tax_Rate            | FLOAT   | Tax rate                |
+| SQFT_Basement       | INT     | Basement area           |
+| HTW                 | VARCHAR | Heat/Water info         |
+| Pool                | VARCHAR | Pool availability       |
+| Commercial          | VARCHAR | Commercial property     |
+| Water               | VARCHAR | Water source            |
+| Sewage              | VARCHAR | Sewage type             |
+| Year_Built          | INT     | Year built              |
+| SQFT_MU             | INT     | Main unit area          |
+| SQFT_Total          | VARCHAR | Total square feet       |
+| Parking             | VARCHAR | Parking type            |
+| Bed                 | INT     | Number of bedrooms      |
+| Bath                | INT     | Number of bathrooms     |
+| Layout              | VARCHAR | Property layout         |
+| Net_Yield           | FLOAT   | Net yield percentage    |
+| IRR                 | FLOAT   | Internal Rate of Return |
+| Rent_Restricted     | VARCHAR | Rent restriction info   |
+| Neighborhood_Rating | INT     | Neighborhood rating     |
+| Latitude            | FLOAT   | Latitude coordinate     |
+| Longitude           | FLOAT   | Longitude coordinate    |
+| Subdivision         | VARCHAR | Subdivision name        |
+| Taxes               | FLOAT   | Property taxes          |
+| Selling_Reason      | VARCHAR | Reason for sale         |
+| Final_Reviewer      | VARCHAR | Reviewer name           |
+| School_Average      | FLOAT   | School rating           |
 
+Table: valuation
 
-## valuation
+Linked to: property (via property_id)
 
-Linked to property table via property_id
+Purpose: Stores multiple valuation entries per property
 
-Stores multiple valuation entries per property
+| Column         | Description           |
+| -------------- | --------------------- |
+| List_Price     | Listing price         |
+| Previous_Rent  | Previous rental value |
+| ARV            | After Repair Value    |
+| Rent_Zestimate | Rent Zestimate        |
+| Low_FMR        | Low Fair Market Rent  |
+| High_FMR       | High Fair Market Rent |
+| Redfin_Value   | Redfin valuation      |
 
-Columns: List_Price, Previous_Rent, ARV, Rent_Zestimate, Low_FMR, High_FMR, Redfin_Value
+Table: hoa
 
-## hoa
+Linked to: property (via property_id)
 
-Linked to property table via property_id
+Purpose: Stores multiple HOA records per property.
 
-Stores multiple HOA records per property
+| Column   | Description           |
+| -------- | --------------------- |
+| HOA      | HOA amount            |
+| HOA_Flag | HOA availability flag |
 
-Columns: HOA, HOA_Flag
+Table: rehab
 
-## rehab
+Linked to: property (via property_id)
 
-Linked to property table via property_id
+Purpose: Stores rehab and maintenance-related information.
 
-Stores multiple rehab records per property
+| Column             | Description              |
+| ------------------ | ------------------------ |
+| Underwriting_Rehab | Underwriting rehab value |
+| Rehab_Calculation  | Rehab cost estimation    |
+| Paint              | Paint flag               |
+| Flooring_Flag      | Flooring flag            |
+| Foundation_Flag    | Foundation flag          |
+| Roof_Flag          | Roof flag                |
+| HVAC_Flag          | HVAC flag                |
+| Kitchen_Flag       | Kitchen flag             |
+| Bathroom_Flag      | Bathroom flag            |
+| Appliances_Flag    | Appliances flag          |
+| Windows_Flag       | Windows flag             |
+| Landscaping_Flag   | Landscaping flag         |
+| Trashout_Flag      | Trashout flag            |
 
-Columns: Underwriting_Rehab, Rehab_Calculation, Paint, Flooring_Flag, Foundation_Flag, Roof_Flag, HVAC_Flag, Kitchen_Flag, Bathroom_Flag, Appliances_Flag, Windows_Flag, Landscaping_Flag, Trashout_Flag
 
 4. ETL Process
 
