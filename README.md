@@ -261,10 +261,13 @@ Then run the sql query to see tables
 SHOW tables;
 ```
 you can see four tables
-| property |
-| valuation |
-| hoa |
-| rehab |
+
+| -------------- | 
+|   property     | 
+|   valuation    | 
+|   rehab        | 
+|   hoa          | 
+
 To see the data in the tables run this query 
 ```
 SELECT * FROM {tablename};
