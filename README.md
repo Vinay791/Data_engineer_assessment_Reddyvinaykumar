@@ -188,5 +188,17 @@ Load – Insert data into MySQL tables (property, valuation, hoa, rehab) with pr
    ```
      docker-compose -f docker-compose.initial.yml up --build -d
    ```
+This command will:
+
+Pull the MySQL image if not already available.
+
+Build using Dockerfile.final_db.
+
+Create and start a container named mysql_ctn.
+
+Set up the database home_db
+
+✏️ Note: 
+
 
    
