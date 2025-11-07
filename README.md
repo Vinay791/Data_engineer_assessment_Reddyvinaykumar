@@ -84,11 +84,10 @@ For MySQL Docker image reference:
 **Document your solution here:**
 
 Project Documentation – Data Engineer Assessment
-1. Overview
+# 1. Overview
 
 This project processes property data from JSON, transforms it, and loads it into a MySQL database using an ETL Python script. The project demonstrates data cleaning, handling nested data, and database management.
-
-2. Repository Contents
+# 2. Repository Contents
 
 schema.sql – SQL schema to create required tables in MySQL.
 
@@ -97,3 +96,77 @@ etl_script.py – Python ETL script that reads JSON, cleans/transforms data, and
 data/fake_property_data_new.json – Sample property data in JSON format.
 
 Field Config.xlsx – Reference for field names and data types.
+
+# 3. Database Schema
+
+Database: home_db 
+
+Tables:
+
+## property
+Column	Type	Description
+Property_Title	VARCHAR	Full property title
+Address	VARCHAR	Full address
+Reviewed_Status	VARCHAR	Review status
+Most_Recent_Status	VARCHAR	Latest status
+Source	VARCHAR	Data source
+Market	VARCHAR	Market city/region
+Occupancy	VARCHAR	Occupancy info
+Flood	VARCHAR	Flood info
+Street_Address	VARCHAR	Street address
+City	VARCHAR	City name
+State	VARCHAR	State code
+Zip	VARCHAR	Zip code
+Property_Type	VARCHAR	Type of property
+Highway	VARCHAR	Highway proximity
+Train	VARCHAR	Train proximity
+Tax_Rate	FLOAT	Tax rate
+SQFT_Basement	INT	Basement area
+HTW	VARCHAR	Heat/Water info
+Pool	VARCHAR	Pool availability
+Commercial	VARCHAR	Commercial property
+Water	VARCHAR	Water source
+Sewage	VARCHAR	Sewage type
+Year_Built	INT	Year built
+SQFT_MU	INT	Main unit area
+SQFT_Total	VARCHAR	Total square feet
+Parking	VARCHAR	Parking type
+Bed	INT	Number of bedrooms
+Bath	INT	Number of bathrooms
+Layout	VARCHAR	Property layout
+Net_Yield	FLOAT	Net yield percentage
+IRR	FLOAT	Internal Rate of Return
+Rent_Restricted	VARCHAR	Rent restriction info
+Neighborhood_Rating	INT	Neighborhood rating
+Latitude	FLOAT	Latitude coordinate
+Longitude	FLOAT	Longitude coordinate
+Subdivision	VARCHAR	Subdivision name
+Taxes	FLOAT	Property taxes
+Selling_Reason	VARCHAR	Reason for sale
+Final_Reviewer	VARCHAR	Reviewer name
+School_Average	FLOAT	School rating
+
+
+## valuation
+
+Linked to property table via property_id
+
+Stores multiple valuation entries per property
+
+Columns: List_Price, Previous_Rent, ARV, Rent_Zestimate, Low_FMR, High_FMR, Redfin_Value
+
+## hoa
+
+Linked to property table via property_id
+
+Stores multiple HOA records per property
+
+Columns: HOA, HOA_Flag
+
+## rehab
+
+Linked to property table via property_id
+
+Stores multiple rehab records per property
+
+Columns: Underwriting_Rehab, Rehab_Calculation, Paint, Flooring_Flag, Foundation_Flag, Roof_Flag, HVAC_Flag, Kitchen_Flag, Bathroom_Flag, Appliances_Flag, Windows_Flag, Landscaping_Flag, Trashout_Flag
