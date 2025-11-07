@@ -82,3 +82,18 @@ For MySQL Docker image reference:
 ## Solutions and Instructions (Filed by Candidate)
 
 **Document your solution here:**
+
+Project Documentation – Data Engineer Assessment
+1. Overview
+
+This project processes property data from JSON, transforms it, and loads it into a MySQL database using an ETL Python script. The project demonstrates data cleaning, handling nested data, and database management.
+
+2. Repository Contents
+
+schema.sql – SQL schema to create required tables in MySQL.
+
+etl_script.py – Python ETL script that reads JSON, cleans/transforms data, and loads it into the database.
+
+data/fake_property_data_new.json – Sample property data in JSON format.
+
+Field Config.xlsx – Reference for field names and data types.
