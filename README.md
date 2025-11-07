@@ -198,7 +198,60 @@ Create and start a container named mysql_ctn.
 
 Set up the database home_db
 
-✏️ Note: 
+database runs on port 3306.
 
+Step 2: Apply SQL Schema
 
+Run the following command to create the tables inside the database:
+```
+docker exec -i mysql_ctn_final mysql -uusername -ppassword home_db < schema.sql
+```
+This command connects to the MySQL container and executes all the SQL statements in schema.sql.
+✏️ Note: use take take database user name and password from docker compose file
+
+Step 3: Run the ETL Script
+
+Now, execute the Python ETL script that reads the JSON file, cleans the data, and loads it into the MySQL tables:
+```
+python3 etl_script.py
+```
+Step 4: Connect to the Database (Inside Container)
+
+To open the MySQL shell inside the running container:
+```
+docker exec -it container_id  -u username -p
+```
+You’ll be inside the MySQL command-line interface (CLI).
+
+✏️ Note: enter the password of the database user ,then you will connected to mysql
+
+You can now run SQL queries
+
+Next connect Database home_db by typing 
+```
+USE home_db;
+```
+Then run the sql query to see tables
+```
+SHOW tables;
+```
+you can see four tables
+| property |
+| valuation |
+| hoa |
+| rehab |
+To see the data in the tables run this query 
+```
+SELECT * FROM {tablename};
+```
+To exit MySQL, type:
+```
+exit
+```
+Step 5: Stop the Container
+
+When you are done, stop and remove the running container:
+```
+sudo docker-compose -f docker-compose.initial.yml down
+```
    
