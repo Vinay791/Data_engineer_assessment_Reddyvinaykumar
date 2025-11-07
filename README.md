@@ -147,7 +147,7 @@ Tables:
 | Final_Reviewer      | VARCHAR | Reviewer name           |
 | School_Average      | FLOAT   | School rating           |
 
-##Table: valuation
+### Table: valuation
 
 Linked to: property (via property_id)
 
@@ -163,7 +163,7 @@ Purpose: Stores multiple valuation entries per property
 | High_FMR       | High Fair Market Rent |
 | Redfin_Value   | Redfin valuation      |
 
-###Table: hoa
+### Table: hoa
 
 Linked to: property (via property_id)
 
@@ -174,7 +174,7 @@ Purpose: Stores multiple HOA records per property.
 | HOA      | HOA amount            |
 | HOA_Flag | HOA availability flag |
 
-##Table: rehab
+### Table: rehab
 
 Linked to: property (via property_id)
 
