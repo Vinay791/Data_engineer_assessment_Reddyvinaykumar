@@ -180,4 +180,13 @@ Transform – Clean data, handle missing/null values, and flatten nested structu
 
 Load – Insert data into MySQL tables (property, valuation, hoa, rehab) with proper foreign key relationships.
 
-5. Running the Project
+# 5. Running the Project
+   
+   Start MySQL using Docker Compose
+   Use the provided docker-compose.initial.yml file to build and run the MySQL container automatically:
+  
+   ```
+     docker-compose -f docker-compose.initial.yml up --build -d
+   ```
+
+   
