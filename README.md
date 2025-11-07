@@ -104,47 +104,48 @@ Database: home_db
 Tables:
 
 ## property
-Column	Type	Description
-Property_Title	VARCHAR	Full property title
-Address	VARCHAR	Full address
-Reviewed_Status	VARCHAR	Review status
-Most_Recent_Status	VARCHAR	Latest status
-Source	VARCHAR	Data source
-Market	VARCHAR	Market city/region
-Occupancy	VARCHAR	Occupancy info
-Flood	VARCHAR	Flood info
-Street_Address	VARCHAR	Street address
-City	VARCHAR	City name
-State	VARCHAR	State code
-Zip	VARCHAR	Zip code
-Property_Type	VARCHAR	Type of property
-Highway	VARCHAR	Highway proximity
-Train	VARCHAR	Train proximity
-Tax_Rate	FLOAT	Tax rate
-SQFT_Basement	INT	Basement area
-HTW	VARCHAR	Heat/Water info
-Pool	VARCHAR	Pool availability
-Commercial	VARCHAR	Commercial property
-Water	VARCHAR	Water source
-Sewage	VARCHAR	Sewage type
-Year_Built	INT	Year built
-SQFT_MU	INT	Main unit area
-SQFT_Total	VARCHAR	Total square feet
-Parking	VARCHAR	Parking type
-Bed	INT	Number of bedrooms
-Bath	INT	Number of bathrooms
-Layout	VARCHAR	Property layout
-Net_Yield	FLOAT	Net yield percentage
-IRR	FLOAT	Internal Rate of Return
-Rent_Restricted	VARCHAR	Rent restriction info
-Neighborhood_Rating	INT	Neighborhood rating
-Latitude	FLOAT	Latitude coordinate
-Longitude	FLOAT	Longitude coordinate
-Subdivision	VARCHAR	Subdivision name
-Taxes	FLOAT	Property taxes
-Selling_Reason	VARCHAR	Reason for sale
-Final_Reviewer	VARCHAR	Reviewer name
-School_Average	FLOAT	School rating
+| Column              | Type      | Description                  |
+| -------------------- | ---------- | ------------------------------ |
+| Property_Title       | VARCHAR   | Full property title |
+| Address              | VARCHAR   | Full address |
+| Reviewed_Status      | VARCHAR   | Review status |
+| Most_Recent_Status   | VARCHAR   | Latest status |
+| Source               | VARCHAR   | Data source |
+| Market               | VARCHAR   | Market city/region |
+| Occupancy            | VARCHAR   | Occupancy info |
+| Flood                | VARCHAR   | Flood info |
+| Street_Address       | VARCHAR   | Street address |
+| City                 | VARCHAR   | City name |
+| State                | VARCHAR   | State code |
+| Zip                  | VARCHAR   | Zip code |
+| Property_Type        | VARCHAR   | Type of property |
+| Highway              | VARCHAR   | Highway proximity |
+| Train                | VARCHAR   | Train proximity |
+| Tax_Rate             | FLOAT     | Tax rate |
+| SQFT_Basement        | INT       | Basement area |
+| HTW                  | VARCHAR   | Heat/Water info |
+| Pool                 | VARCHAR   | Pool availability |
+| Commercial           | VARCHAR   | Commercial property |
+| Water                | VARCHAR   | Water source |
+| Sewage               | VARCHAR   | Sewage type |
+| Year_Built           | INT       | Year built |
+| SQFT_MU              | INT       | Main unit area |
+| SQFT_Total           | VARCHAR   | Total square feet |
+| Parking              | VARCHAR   | Parking type |
+| Bed                  | INT       | Number of bedrooms |
+| Bath                 | INT       | Number of bathrooms |
+| Layout               | VARCHAR   | Property layout |
+| Net_Yield            | FLOAT     | Net yield percentage |
+| IRR                  | FLOAT     | Internal Rate of Return |
+| Rent_Restricted      | VARCHAR   | Rent restriction info |
+| Neighborhood_Rating  | INT       | Neighborhood rating |
+| Latitude             | FLOAT     | Latitude coordinate |
+| Longitude            | FLOAT     | Longitude coordinate |
+| Subdivision          | VARCHAR   | Subdivision name |
+| Taxes                | FLOAT     | Property taxes |
+| Selling_Reason       | VARCHAR   | Reason for sale |
+| Final_Reviewer       | VARCHAR   | Reviewer name |
+| School_Average       | FLOAT     | School rating |
 
 
 ## valuation
@@ -170,3 +171,13 @@ Linked to property table via property_id
 Stores multiple rehab records per property
 
 Columns: Underwriting_Rehab, Rehab_Calculation, Paint, Flooring_Flag, Foundation_Flag, Roof_Flag, HVAC_Flag, Kitchen_Flag, Bathroom_Flag, Appliances_Flag, Windows_Flag, Landscaping_Flag, Trashout_Flag
+
+4. ETL Process
+
+Extract – Read JSON data from fake_property_data_new.json.
+
+Transform – Clean data, handle missing/null values, and flatten nested structures (valuation, HOA, rehab) to load into separate tables.
+
+Load – Insert data into MySQL tables (property, valuation, hoa, rehab) with proper foreign key relationships.
+
+5. Running the Project
