@@ -232,7 +232,8 @@ Run the following command to create the tables inside the database:
 docker exec -i mysql_ctn_final mysql -uusername -ppassword home_db < schema.sql
 ```
 This command connects to the MySQL container and executes all the SQL statements in schema.sql.
-✏️ Note: use take take database user name and password from docker compose file
+
+✏️ Note: Take database user name and password from docker compose file
 
 Step 3: Run the ETL Script
 
